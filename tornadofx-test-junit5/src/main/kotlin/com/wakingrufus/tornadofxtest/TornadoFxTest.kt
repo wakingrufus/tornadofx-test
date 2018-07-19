@@ -40,22 +40,3 @@ open class TornadoFxTest : ApplicationTest() {
         }
     }
 }
-
-fun waitFor(condition: () -> Boolean, maxMillis: Long = 10000) {
-    val startTime = Instant.now()
-    while (!condition() && Instant.now().isBefore(startTime.plusMillis(maxMillis))) {
-        Thread.sleep(1000)
-    }
-}
-
-val logger = KLogging().logger()
-fun printNodes(node: Node, level: Int = 0) {
-
-    logger.info { " ".repeat(level) + node.toString() }
-    if (node is Parent) {
-        node.childrenUnmodifiable.forEach {
-            printNodes(it, level + 1)
-        }
-    }
-
-}

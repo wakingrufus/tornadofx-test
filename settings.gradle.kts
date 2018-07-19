@@ -1,1 +1,1 @@
-include("tornadofx-test-junit5","tornadofx-test-junit")
+include("tornadofx-test-core", "tornadofx-test-junit5", "tornadofx-test-junit")
